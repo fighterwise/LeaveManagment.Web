@@ -2,9 +2,9 @@
 
 namespace LeaveManagment.Web.Data
 {
-    public class LeaveAllocation  // ახალი დეითბეისის თეიბლი.
+    public class LeaveAllocation:BaseEntity  // ახალი დეითბეისის თეიბლი.
     {
-        public int Id { get; set; }  // ეს არის ამ ახალი თეიბლის რათქმაუნდა სვეტი პრიმარი კეი.
+        // გადავიტანეტ მშობელ კლასში public int Id { get; set; }  // ეს არის ამ ახალი თეიბლის რათქმაუნდა სვეტი პრიმარი კეი.
 
         public int NumberOfDays { get; set; }  // დღეები
 
@@ -15,8 +15,8 @@ namespace LeaveManagment.Web.Data
         public string EmployeeId { get; set; }
 
 
-        public DateTime DateCreated { get; set; }
-        public DateTime DateModified { get; set; }
+        //გადავიტანეთ მშობელ კლასში public DateTime DateCreated { get; set; }
+        //გადავიტანეთ მშობელ კლასში public DateTime DateModified { get; set; }
          
         
 

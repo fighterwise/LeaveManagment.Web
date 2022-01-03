@@ -1,8 +1,8 @@
 ﻿namespace LeaveManagment.Web.Data
 {
-    public class LeaveType
+    public class LeaveType : BaseEntity
     {
-        public int Id { get; set; }
+       //გადავიტანეთ მშობელ კლასში public int Id { get; set; }
        // ეს იქნება პირველი სვეტი
 
        public string Name { get; set; }
@@ -11,10 +11,10 @@
        public int DefaultDays { get; set; }
         //ეს კი არის რამდენი შვებულების დღე აქვს დარჩენილი
 
-       public DateTime DateCreated { get; set; }
+       // მშობელშია public DateTime DateCreated { get; set; }
         //ვაკეთებთ ტრეკინგს როდის შეიქმნა ეს სვეტი
 
-        public DateTime DateModified { get; set; }
+        //მშობელშია public DateTime DateModified { get; set; }
         //ვაკეთებთ ტრეკინს როდის მოხდა მოდიფიცირება შეცვლა ამ სვეტის.
 
 
