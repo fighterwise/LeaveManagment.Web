@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using AutoMapper;
 using LeaveManagment.Web.Configurations;
+using LeaveManagment.Web.Contracts;
+using LeaveManagment.Web.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +16,10 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<Employee>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
+//builder.Services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+//builder.Services.AddSingleton(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+builder.Services.AddScoped<ILeaveTypeRepository,LeaveTypeRepository>();
 
 builder.Services.AddAutoMapper(typeof(Mapperconfig));
 
