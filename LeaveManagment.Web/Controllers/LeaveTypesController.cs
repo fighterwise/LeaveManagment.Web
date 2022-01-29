@@ -10,9 +10,11 @@ using LeaveManagment.Web.Data;
 using AutoMapper;
 using LeaveManagment.Web.Models;
 using LeaveManagment.Web.Contracts;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LeaveManagment.Web.Controllers
 {
+    [Authorize] // დარეგისტრირებული მომხმარებლები შეძლებენ ამ გვერდის ნახვას.
     public class LeaveTypesController : Controller
     {
         
@@ -48,7 +50,7 @@ namespace LeaveManagment.Web.Controllers
             var leaveTypeVM = mapper.Map<LeaveTypeVM>(leaveType);
             return View(leaveTypeVM);
         }
-
+        [Authorize(Roles = "Administrator")] // მხოლოდ ადმინისტრატორები შეძლებენ ამ გვერდის ნახვას.
         // GET: LeaveTypes/Create
         public IActionResult Create()
         {
@@ -60,6 +62,7 @@ namespace LeaveManagment.Web.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrator")] // მხოლოდ ადმინისტრატორები შეძლებენ ამ გვერდის ნახვას.
         public async Task<IActionResult> Create(LeaveTypeVM leaveTypeVM)
         {
             if (ModelState.IsValid)
@@ -70,7 +73,7 @@ namespace LeaveManagment.Web.Controllers
             }
             return View(leaveTypeVM);
         }
-
+        [Authorize(Roles = "Administrator")] // მხოლოდ ადმინისტრატორები შეძლებენ ამ გვერდის ნახვას.
         // GET: LeaveTypes/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -84,7 +87,7 @@ namespace LeaveManagment.Web.Controllers
             var leaveTypeVM = mapper.Map<LeaveTypeVM>(leaveType);
             return View(leaveTypeVM);
         }
-
+        [Authorize(Roles = "Administrator")] // მხოლოდ ადმინისტრატორები შეძლებენ ამ გვერდის ნახვას.
         // POST: LeaveTypes/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -119,7 +122,7 @@ namespace LeaveManagment.Web.Controllers
             }
             return View(leaveTypeVM);
         }
-
+        [Authorize(Roles = "Administrator")] // მხოლოდ ადმინისტრატორები შეძლებენ ამ გვერდის ნახვას.
         // GET: LeaveTypes/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -133,7 +136,7 @@ namespace LeaveManagment.Web.Controllers
             return View(leaveType);
             
         }
-
+        [Authorize(Roles = "Administrator")] // მხოლოდ ადმინისტრატორები შეძლებენ ამ გვერდის ნახვას.
         // POST: LeaveTypes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

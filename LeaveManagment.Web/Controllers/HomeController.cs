@@ -1,4 +1,5 @@
 ﻿using LeaveManagment.Web.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -17,7 +18,7 @@ namespace LeaveManagment.Web.Controllers
         {
             return View();
         }
-
+        [Authorize] // თუ არაა დარეგისტრირებული არ ანახებს ამის შემდეგ სხვა გვერდებს.
         public IActionResult Privacy()
         {
             return View();
